@@ -19,44 +19,44 @@ let GameManager = {
         break;
     }
     let getInterface = document.querySelector(".interface");
-    getInterface.innerHTML = '<img src="img/avatar-player/' + classType.toLowerCase() 
-    + '.jpg" class ="img-avatar"><div><h3>' + classType + '</h3 class="health-player"><p>Health: ' 
-    + player.health + '</p><p>Mana: ' + player.mana + '</p><p>Strength: ' 
-    + player.strength + '</p><p>Agility: ' 
-    + player.agility + '</p><p>Speed: ' + player.speed + '</p></div>';
+    getInterface.innerHTML = '<img src="img/avatar-player/' + classType.toLowerCase()
+      + '.jpg" class ="img-avatar"><div><h3>' + classType + '</h3 class="health-player"><p>Health: '
+      + player.health + '</p><p>Mana: ' + player.mana + '</p><p>Strength: '
+      + player.strength + '</p><p>Agility: '
+      + player.agility + '</p><p>Speed: ' + player.speed + '</p></div>';
   },
   setPreFight: function () {
     let getHeader = document.querySelector(".header");
     let getActions = document.querySelector(".actions");
     let getArena = document.querySelector(".arena");
-    getHeader.innerHTML = "<p>Task: Find an ennemy!</p>";
-    getActions.innerHTML = '<a href="#" class="btn-prefight" onclick="GameManager.setFight()">Search for ennemy!</a>';
+    getHeader.innerHTML = "<p>Task: Find an enemy!</p>";
+    getActions.innerHTML = '<a href="#" class="btn-prefight" onclick="GameManager.setFight()">Search for enemy!</a>';
     getArena.style.visibility = "visible";
   },
   setFight: function () {
     let getHeader = document.querySelector(".header");
     let getActions = document.querySelector(".actions");
-    let getEnnemy = document.querySelector(".ennemy");
+    let getEnemy = document.querySelector(".ennemy");
     // Create ennemy!
-    let ennemy00 = new Ennemy("Goblin", 100, 0, 50, 100, 100);
-    let ennemy01 = new Ennemy("Troll", 200, 0, 150, 80, 150);
-    let chooseRandomEnnemy = Math.floor(Math.random() * Math.floor(2));
-    switch (chooseRandomEnnemy) {
+    let enemy00 = new Enemy("Goblin", 100, 0, 50, 100, 100);
+    let enemy01 = new Enemy("Troll", 200, 0, 150, 80, 150);
+    let chooseRandomEnemy = Math.floor(Math.random() * Math.floor(2));
+    switch (chooseRandomEnemy) {
       case 0:
-        ennemy = ennemy00;
+        enemy = enemy00;
         break;
       case 1:
-        ennemy = ennemy01;
+        enemy = enemy01;
         break;
     }
     getHeader.innerHTML = '<p>Task: Choose your move</p>';
     getActions.innerHTML = '<a href="#" class="btn-prefight" onclick="PlayerMoves.calcAttack()">Attack!</a>';
-    getEnnemy.innerHTML = '<img src="img/avatar-ennemies/' + ennemy.ennemyType.toLowerCase() 
-    + '.jpg" alt="' + ennemy.ennemyType + '" class="img-avatar"><div><h3>' + ennemy.ennemyType 
-    + '</h3><p class="health-ennemy">Health: ' + ennemy.health 
-    + '</p><p>Mana: ' + ennemy.mana 
-    + '</p><p>Strength: ' + ennemy.strength 
-    + '</p><p>Agility: ' + ennemy.agility 
-    + '</p><p>Speed: ' + ennemy.speed + '</p></div>';
+    getEnemy.innerHTML = '<img src="img/avatar-ennemies/' + enemy.enemyType.toLowerCase()
+      + '.jpg" alt="' + enemy.enemyType + '" class="img-avatar"><div><h3>' + enemy.enemyType
+      + '</h3><p class="health-ennemy">Health: ' + ennemy.health
+      + '</p><p>Mana: ' + enemy.mana
+      + '</p><p>Strength: ' + enemy.strength
+      + '</p><p>Agility: ' + enemy.agility
+      + '</p><p>Speed: ' + enemy.speed + '</p></div>';
   }
 }
