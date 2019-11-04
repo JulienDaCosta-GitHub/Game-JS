@@ -1,7 +1,7 @@
 let ennemy;
 
-function Ennemy(enemyType, health, mana, strength, agility, speed) {
-    this.classType = enemyType; //S en trop a "enemy"
+function Ennemy(ennemyType, health, mana, strength, agility, speed) {
+    this.classType = ennemyType; //S en trop a "ennemy"
     this.health = health;
     this.mana = mana;
     this.strength = strength;
