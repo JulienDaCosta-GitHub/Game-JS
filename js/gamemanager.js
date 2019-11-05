@@ -20,7 +20,7 @@ let GameManager = {
     }
     let getInterface = document.querySelector(".interface");
     getInterface.innerHTML = '<img src="img/avatar-player/' + classType.toLowerCase()
-      + '.jpg" class ="img-avatar"><div><h3>' + classType + '</h3 class="health-player"><p>Health: '
+      + '.jpg" class ="img-avatar"><div><h3>' + classType + '</h3> <p class="health-player">Health: '
       + player.health + '</p><p>Mana: ' + player.mana + '</p><p>Strength: '
       + player.strength + '</p><p>Agility: '
       + player.agility + '</p><p>Speed: ' + player.speed + '</p></div>';
@@ -36,7 +36,7 @@ let GameManager = {
   setFight: function () {
     let getHeader = document.querySelector(".header");
     let getActions = document.querySelector(".actions");
-    let getEnemy = document.querySelector(".ennemy");
+    let getEnemy = document.querySelector(".enemy");
     // Create ennemy!
     let enemy00 = new Enemy("Goblin", 100, 0, 50, 100, 100);
     let enemy01 = new Enemy("Troll", 200, 0, 150, 80, 150);
@@ -49,10 +49,12 @@ let GameManager = {
         enemy = enemy01;
         break;
     }
+    console.log(enemy);
     getHeader.innerHTML = '<p>Task: Choose your move</p>';
+    console.log(getEnemy);
     getActions.innerHTML = '<a href="#" class="btn-prefight" onclick="PlayerMoves.calcAttack()">Attack!</a>';
-    getEnemy.innerHTML = '<img src="img/avatar-enemies/' + enemy.enemyType.toLowerCase()
-      + '.jpg" alt="' + enemy.enemyType + '" class="img-avatar"><div><h3>' + enemy.enemyType
+    getEnemy.innerHTML = '<img src="img/avatar-enemies/' + enemy.classType.toLowerCase()
+      + '.jpg" alt="' + enemy.classType + '" class="img-avatar"><div><h3>' + enemy.classType
       + '</h3><p class="health-enemy">Health: ' + enemy.health
       + '</p><p>Mana: ' + enemy.mana
       + '</p><p>Strength: ' + enemy.strength

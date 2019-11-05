@@ -36,28 +36,28 @@ let PlayerMoves = {
         //Ennemy attacks
         let enemyAttack = function () {
             let calcBaseDamage;
-            if (ennemy.mana > 0) {
-                calcBaseDamage = ennemy.strength * ennemy.mana / 1000;
+            if (enemy.mana > 0) {
+                calcBaseDamage = enemy.strength * enemy.mana / 1000;
             }
             else {
-                calcBaseDamage = ennemy.strength * ennemy.agility / 1000;
+                calcBaseDamage = enemy.strength * enemy.agility / 1000;
             }
             // TO get different damage every attacks
             let offsetDamage = Math.floor(Math.random() * Math.floor(10));
             let calcOutputDamage = calcBaseDamage + offsetDamage;
 
             //How many time we attack the ennemy
-            let numberOfHits = Math.floor(Math.random() * Math.floor(ennemy.agility / 10) / 2) + 1;
+            let numberOfHits = Math.floor(Math.random() * Math.floor(enemy.agility / 10) / 2) + 1;
             let attackValues = [calcOutputDamage, numberOfHits];
             return attackValues;
 
         }
         //get ennemy and player health
         let getPlayerHealth = document.querySelector(".health-player");
-        let getEnemyHealth = document.querySelector(".health-ennemy");
+        let getEnemyHealth = document.querySelector(".health-enemy");
 
         //initiate attacks
-        if (getPlayerSpeed >= getEnnemySpeed) {
+        if (getPlayerSpeed >= getEnemySpeed) {
             let playerAttackValues = playerAttack();
             let totalDamage = playerAttackValues[0] * playerAttackValues[1];
             enemy.health = enemy.health - totalDamage;
@@ -80,7 +80,7 @@ let PlayerMoves = {
                 if (player.health <= 0) {
                     alert("You loose! Refresh browser to play again.");
                     getPlayerHealth.innerHTML = 'Health: 0';
-                    getEnemyHealth.innerHTML = 'Health: 0' + ennemy.health;
+                    getEnemyHealth.innerHTML = 'Health: 0' + enemy.health;
                 } else {
                     //If enemy didnt kill us 
                     getPlayerHealth.innerHTML = 'Health: ' + player.health;
